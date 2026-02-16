@@ -1,0 +1,22 @@
+
+body {
+        font-family: "Helvetica", "Arial", sans-serif;
+}
+
+li {
+        color: darkgray;
+        margin: 10px 0;
+}
+
+.avengerfavorito {
+         color: red;
+}
+
+#vi {
+        font-size: large;
+}
+
+.avengerfavorito:hover {
+        font-size: large;
+        color: rosybrown;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>José Eduardo Viveros Escamilla - TC2005B</title>
+
+  <!-- Enlaza la versión minimizada -->
+  <link rel="stylesheet" href="lab03.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1>José Eduardo Viveros Escamilla</h1>
+    <p class="meta">Matrícula: A01710605 · Correo: jose.eduardo@correo.com</p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <div class="container">
+    <ul>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#preguntas">Preguntas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container">
+  <section id="sobre-mi" class="card">
+    <h2>Sobre mí</h2>
+    <p>Soy estudiante de Ingeniería en Tecnologías Computacionales en el Tecnológico de Monterrey.</p>
+    <p>Me apasionan <strong>la divulgación tecnológica, machine learning y desarrollo web</strong>.</p>
+    <figure class="figure">
+      <img src="https://via.placeholder.com/220" alt="Imagen representativa" />
+      <figcaption>Imagen representativa</figcaption>
+    </figure>
+  </section>
+
+  <section id="proyectos" class="card">
+    <h2>Proyectos</h2>
+    <ul class="list">
+      <li>Proyecto de análisis de sentimientos con Deep Learning</li>
+      <li>Sistema web para gestión de artículos y reservas</li>
+      <li>Grupo estudiantil Tech For Geeks</li>
+    </ul>
+
+    <h3>Tabla de habilidades</h3>
+    <div class="table-wrap" role="region" aria-label="Tabla de habilidades">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tecnología</th>
+            <th>Nivel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Python</td>
+            <td>Avanzado</td>
+          </tr>
+          <tr>
+            <td>HTML</td>
+            <td>Intermedio</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="preguntas" class="card">
+    <h2>Preguntas Teóricas</h2>
+
+    <article class="qa">
+      <h3>1) Diferencia entre Internet y WWW</h3>
+      <p><strong>Internet</strong> es la red; la <strong>WWW</strong> es el servicio de páginas/enlaces que usa HTTP/HTTPS.</p>
+    </article>
+
+    <article class="qa">
+      <h3>2) Partes de un URL</h3>
+      <p>Protocolo, dominio/host, ruta, (puerto opcional), query/parámetros y fragmento.</p>
+    </article>
+
+    <article class="qa">
+      <h3>3) Propósito de métodos HTTP</h3>
+      <ul class="list compact">
+        <li><strong>GET:</strong> obtener</li>
+        <li><strong>HEAD:</strong> headers</li>
+        <li><strong>POST:</strong> enviar/crear</li>
+        <li><strong>PUT:</strong> reemplazar</li>
+        <li><strong>PATCH:</strong> modificar parcial</li>
+        <li><strong>DELETE:</strong> eliminar</li>
+      </ul>
+    </article>
+
+    <article class="qa">
+      <h3>4) Método al enviar login (usuario/contraseña)</h3>
+      <p><strong>POST</strong>, porque manda datos en el cuerpo (no en la URL) y es más apropiado para datos sensibles (con HTTPS).</p>
+    </article>
+
+    <article class="qa">
+      <h3>5) Método al abrir una página escribiendo un URL</h3>
+      <p><strong>GET</strong>.</p>
+    </article>
+
+    <article class="qa">
+      <h3>6) Código HTTP 200</h3>
+      <p>Solicitud exitosa. <strong>No</strong> indica error.</p>
+    </article>
+
+    <article class="qa">
+      <h3>7) Error 404: ¿es responsabilidad del desarrollador?</h3>
+      <p>Depende: si hay enlaces/rutas mal hechas en el sitio, <strong>sí</strong>; si el usuario escribió mal la URL, no necesariamente.</p>
+    </article>
+
+    <article class="qa">
+      <h3>8) Error 500: ¿es responsabilidad del desarrollador?</h3>
+      <p>Generalmente <strong>sí</strong>, es un error interno del servidor (código/configuración/BD).</p>
+    </article>
+
+    <article class="qa">
+      <h3>9) ¿Qué significa deprecated en HTML5? (ejemplos)</h3>
+      <p>Que ya <strong>no se recomienda</strong> usar. Ejemplos: <code>&lt;font&gt;</code>, <code>&lt;center&gt;</code>, <code>&lt;frameset&gt;</code>/<code>&lt;frame&gt;</code>.</p>
+    </article>
+
+    <article class="qa">
+      <h3>10) Diferencias principales HTML4 vs HTML5</h3>
+      <p>HTML5 agrega semántica, multimedia nativa (audio/video) y mejores formularios; reduce etiquetas de presentación.</p>
+    </article>
+
+    <article class="qa">
+      <h3>11) Componentes de estructura y estilo de una tabla</h3>
+      <p><strong>Estructura:</strong> table, thead, tbody, tfoot, tr, th, td. <strong>Estilo:</strong> se controla con CSS (bordes, padding, alineación, colores).</p>
+    </article>
+
+    <article class="qa">
+      <h3>12) Principales controles de una forma HTML5</h3>
+      <p>input (text, email, password, date, number, etc.), textarea, select, button.</p>
+    </article>
+
+    <article class="qa">
+      <h3>13) Soporte HTML5 del navegador</h3>
+      <p>Navegador: <strong>Google Chrome</strong>. Soporte: <strong>alto</strong> (comprobar en <a href="http://html5test.com/" target="_blank" rel="noopener">html5test.com</a> y pegar puntaje).</p>
+    </article>
+
+    <article class="qa">
+      <h3>14) Ciclo de vida de los sistemas de información</h3>
+      <p>Planeación, análisis, diseño, implementación, operación, mantenimiento y retiro.</p>
+    </article>
+
+    <article class="qa">
+      <h3>15) Ciclo de desarrollo de sistemas de información (SDLC)</h3>
+      <p>Requerimientos, diseño, desarrollo, pruebas, despliegue y mantenimiento (iterable en ágil).</p>
+    </article>
+  </section>
+
+  <section id="contacto" class="card">
+    <h2>Formulario de contacto</h2>
+
+    <form class="form" method="POST" action="#">
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required />
+      </div>
+
+      <div class="field">
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="field">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Editor utilizado: Visual Studio Code — <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Sitio oficial</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

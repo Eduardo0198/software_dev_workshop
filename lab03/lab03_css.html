@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>José Eduardo Viveros Escamilla - TC2005B</title>
 
-  <!-- Enlaza la versión minimizada -->
+  <!-- Nos enlazamos con lab03.css -->
   <link rel="stylesheet" href="lab03.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
 <header class="site-header">
   <div class="container">
     <h1>José Eduardo Viveros Escamilla</h1>
-    <p class="meta">Matrícula: A01710605 · Correo: jose.eduardo@correo.com</p>
+    <p class="meta">Matrícula: A01710605 · Correo: joseduardo1604@outlook.com</p>
   </div>
 </header>
 
@@ -32,9 +32,9 @@
   <section id="sobre-mi" class="card">
     <h2>Sobre mí</h2>
     <p>Soy estudiante de Ingeniería en Tecnologías Computacionales en el Tecnológico de Monterrey.</p>
-    <p>Me apasionan <strong>la divulgación tecnológica, machine learning y desarrollo web</strong>.</p>
+    <p>Me apasionan <strong>la divulgación tecnológica, las sereies/peliculas, basquetbol, natación,machine learning y desarrollo web</strong>.</p>
     <figure class="figure">
-      <img src="https://via.placeholder.com/220" alt="Imagen representativa" />
+      <img src="https://imagenes.elpais.com/resizer/v2/IZJ5HFINBX7SA2VLZKXRUQTXJQ.jpg?auth=629b7a11190311a06f5d43f003e25a12759e5a52319ecc8354a2317b013af19a&width=1200" alt="Imagen representativa" />
       <figcaption>Imagen representativa</figcaption>
     </figure>
   </section>
@@ -73,88 +73,25 @@
   <section id="preguntas" class="card">
     <h2>Preguntas Teóricas</h2>
 
-    <article class="qa">
-      <h3>1) Diferencia entre Internet y WWW</h3>
-      <p><strong>Internet</strong> es la red; la <strong>WWW</strong> es el servicio de páginas/enlaces que usa HTTP/HTTPS.</p>
-    </article>
+   <article class="qa">
+  <h3>1) Recomendación sobre usar <code>!important</code> en CSS</h3>
+  <p>Evitarlo casi siempre; úsalo solo como último recurso (hotfix) porque dificulta mantener y depurar estilos.</p>
+</article>
 
-    <article class="qa">
-      <h3>2) Partes de un URL</h3>
-      <p>Protocolo, dominio/host, ruta, (puerto opcional), query/parámetros y fragmento.</p>
-    </article>
+<article class="qa">
+  <h3>2) Imagen de fondo: ¿por qué escogerla con cuidado?</h3>
+  <p>Porque afecta rendimiento (peso), legibilidad del texto y puede verse mal en distintas pantallas si la pagina no es responsiva.</p>
+</article>
 
-    <article class="qa">
-      <h3>3) Propósito de métodos HTTP</h3>
-      <ul class="list compact">
-        <li><strong>GET:</strong> obtener</li>
-        <li><strong>HEAD:</strong> headers</li>
-        <li><strong>POST:</strong> enviar/crear</li>
-        <li><strong>PUT:</strong> reemplazar</li>
-        <li><strong>PATCH:</strong> modificar parcial</li>
-        <li><strong>DELETE:</strong> eliminar</li>
-      </ul>
-    </article>
+<article class="qa">
+  <h3>3) Recomendación entre <code>%</code>, <code>px</code> y <code>pt</code></h3>
+  <p><code>%</code> para diseños responsivos, <code>px</code> para tamaños precisos en pantalla, y <code>pt</code> principalmente para impresión.</p>
+</article>
 
-    <article class="qa">
-      <h3>4) Método al enviar login (usuario/contraseña)</h3>
-      <p><strong>POST</strong>, porque manda datos en el cuerpo (no en la URL) y es más apropiado para datos sensibles (con HTTPS).</p>
-    </article>
-
-    <article class="qa">
-      <h3>5) Método al abrir una página escribiendo un URL</h3>
-      <p><strong>GET</strong>.</p>
-    </article>
-
-    <article class="qa">
-      <h3>6) Código HTTP 200</h3>
-      <p>Solicitud exitosa. <strong>No</strong> indica error.</p>
-    </article>
-
-    <article class="qa">
-      <h3>7) Error 404: ¿es responsabilidad del desarrollador?</h3>
-      <p>Depende: si hay enlaces/rutas mal hechas en el sitio, <strong>sí</strong>; si el usuario escribió mal la URL, no necesariamente.</p>
-    </article>
-
-    <article class="qa">
-      <h3>8) Error 500: ¿es responsabilidad del desarrollador?</h3>
-      <p>Generalmente <strong>sí</strong>, es un error interno del servidor (código/configuración/BD).</p>
-    </article>
-
-    <article class="qa">
-      <h3>9) ¿Qué significa deprecated en HTML5? (ejemplos)</h3>
-      <p>Que ya <strong>no se recomienda</strong> usar. Ejemplos: <code>&lt;font&gt;</code>, <code>&lt;center&gt;</code>, <code>&lt;frameset&gt;</code>/<code>&lt;frame&gt;</code>.</p>
-    </article>
-
-    <article class="qa">
-      <h3>10) Diferencias principales HTML4 vs HTML5</h3>
-      <p>HTML5 agrega semántica, multimedia nativa (audio/video) y mejores formularios; reduce etiquetas de presentación.</p>
-    </article>
-
-    <article class="qa">
-      <h3>11) Componentes de estructura y estilo de una tabla</h3>
-      <p><strong>Estructura:</strong> table, thead, tbody, tfoot, tr, th, td. <strong>Estilo:</strong> se controla con CSS (bordes, padding, alineación, colores).</p>
-    </article>
-
-    <article class="qa">
-      <h3>12) Principales controles de una forma HTML5</h3>
-      <p>input (text, email, password, date, number, etc.), textarea, select, button.</p>
-    </article>
-
-    <article class="qa">
-      <h3>13) Soporte HTML5 del navegador</h3>
-      <p>Navegador: <strong>Google Chrome</strong>. Soporte: <strong>alto</strong> (comprobar en <a href="http://html5test.com/" target="_blank" rel="noopener">html5test.com</a> y pegar puntaje).</p>
-    </article>
-
-    <article class="qa">
-      <h3>14) Ciclo de vida de los sistemas de información</h3>
-      <p>Planeación, análisis, diseño, implementación, operación, mantenimiento y retiro.</p>
-    </article>
-
-    <article class="qa">
-      <h3>15) Ciclo de desarrollo de sistemas de información (SDLC)</h3>
-      <p>Requerimientos, diseño, desarrollo, pruebas, despliegue y mantenimiento (iterable en ágil).</p>
-    </article>
-  </section>
+<article class="qa">
+  <h3>4) ¿Por qué un CSS minimizado mejora rendimiento?</h3>
+  <p>Pesa menos y se descarga más rápido, reduciendo tiempo de carga por so tambien lo reducimos a una linea con el .min</p>
+</article>
 
   <section id="contacto" class="card">
     <h2>Formulario de contacto</h2>

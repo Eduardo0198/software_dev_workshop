@@ -511,7 +511,7 @@ const server = http.createServer((request, response) => {
     return;
   }
 
-  // RUTAS QUE ASOCIAMOS A LOS RENDERS QUE DEFINIMOS ARRIBA
+  // RUTAS QUE ASOCIAMOS A LOS RENDERS QUE DEFINIMOS 
   // Ruta inicio
   if (request.url === "/" && request.method === "GET") {
     response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });

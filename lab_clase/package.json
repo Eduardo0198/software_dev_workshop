@@ -1,0 +1,26 @@
+{
+  "name": "lab_clase",
+  "version": "1.0.0",
+  "description": "Lab Clase",
+  "keywords": [
+    "acces",
+    "lab",
+    "clase"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "eduardo0198"
+  },
+  "license": "ISC",
+  "author": "Edve08",
+  "type": "commonjs",
+  "main": "apps.js",
+  "scripts": {
+    "start": "node --watch apps2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {}
+}

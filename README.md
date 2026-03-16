@@ -15,7 +15,7 @@
 | Lab 07 | Manejo de ramas |
 | Lab 08 | Introducción al back-end |
 | Lab 09 | DBMS de escritorio |
-| Lab 10 | — |
+| Lab 10 | Rutas y formas |
 | Lab 11 | — |
 | Lab 12 | — |
 | Lab 13 | — |

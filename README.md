@@ -17,8 +17,8 @@
 | Lab 09 | DBMS de escritorio (Ricardo) |
 | Lab 10 | Rutas y formas |
 | Lab 11 | Express |
-| Lab 12 | — |
-| Lab 13 | — |
+| Lab 12 | HTML Dinamico |
+| Lab 13 | MVC |
 | Lab 14 | — |
 | Lab 15 | — |
 | Lab 16 | — |

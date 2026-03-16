@@ -1,0 +1,33 @@
+
+
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <h2 class="text-center mb-4 fw-bold">Catalogo de personajes</h2>
+  <div class="row g-4">
+
+    <% for (const personaje of personajes) { %>
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm character-card">
+          <img src="<%= personaje.imagen %>" class="card-img-top character-img" alt="<%= personaje.nombre %>">
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><%= personaje.nombre %></h5>
+            <span class="badge bg-danger"><%= personaje.tipo %></span>
+            <span class="badge bg-secondary"><%= personaje.universo %></span>
+            <p class="card-text mt-3">
+              <%= personaje.descripcion %>
+            </p>
+            <button
+              class="btn btn-outline-danger w-100"onclick="mostrarInfo('<%= personaje.nombre.replace(/'/g, '\\\'') %>', '<%= personaje.descripcion.replace(/'/g, '\\\'') %>')">
+              Ver mas
+            </button>
+          </div>
+        </div>
+      </div>
+    <% } %>
+
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

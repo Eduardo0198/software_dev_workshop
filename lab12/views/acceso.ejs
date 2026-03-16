@@ -1,0 +1,60 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 id="validatorTitle" class="mb-4 text-center fw-bold text-danger">
+        Avengers Secure Access
+      </h2>
+
+      <p class="text-center text-muted">
+        Ingresa una contraseña segura para acceder al archivo secreto de S.H.I.E.L.D.
+      </p>
+
+      <%- mensaje || '' %>
+
+      <form id="passwordForm" action="/guardar-password" method="POST" novalidate>
+        <div class="mb-3">
+          <label for="password" class="form-label fw-semibold">Contraseña</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Escribe tu contraseña">
+          <div id="passwordHelp" class="form-text text-muted">
+            La contraseña debe ser segura.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label fw-semibold">Confirmar contraseña</label>
+          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Vuelve a escribir la contraseña">
+          <div id="confirmHelp" class="form-text text-muted">
+            Ambas contraseñas deben coincidir.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <button type="button" id="togglePassword" class="btn btn-outline-danger">
+            Mostrar / Ocultar contraseñas
+          </button>
+        </div>
+
+        <div class="mb-3">
+          <h5 class="fw-bold">Requisitos</h5>
+          <ul class="list-group">
+            <li id="reqLength" class="list-group-item">Minimo 8 caracteres</li>
+            <li id="reqUppercase" class="list-group-item">Al menos una mayuscula</li>
+            <li id="reqNumber" class="list-group-item">Al menos un numero</li>
+            <li id="reqMatch" class="list-group-item">Las contraseñas deben coincidir</li>
+          </ul>
+        </div>
+
+        <button type="submit" class="btn btn-danger w-100">
+          Validar y guardar contraseña
+        </button>
+      </form>
+
+      <div id="resultadoPassword" class="mt-4"></div>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

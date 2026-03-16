@@ -1,0 +1,31 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<header class="hero-section text-white text-center d-flex align-items-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Catalogo de Personajes de Marvel</h1>
+    <p class="lead mt-3">
+      Aplicacion desarrollada con Node.js para el Laboratorio 12 de HTML dinamico con EJS.
+    </p>
+    <a href="/catalogo" class="btn btn-light btn-lg mt-3 fw-semibold">Ver catalogo</a>
+  </div>
+</header>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 class="mb-3">Descripcion del proyecto</h2>
+      <p>
+        Esta version toma como base el catalogo de Marvel del Lab 6 y se adapta para
+        trabajar con rutas en el servidor usando Express y EJS.
+      </p>
+      <p class="mb-0">
+        Ahora el sitio cuenta con paginas separadas para inicio, catalogo, acceso seguro
+        y preguntas del laboratorio, ademas de una ruta POST para guardar datos enviados
+        desde una forma HTML.
+      </p>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

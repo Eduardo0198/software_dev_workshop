@@ -41,3 +41,22 @@ body {
 footer {
   margin-top: 3rem;
 }
+
+
+.valid {
+  color: #198754;
+  font-weight: bold;
+}
+
+.invalid {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+#validatorTitle {
+  transition: all 0.3s ease;
+}
+
+#resultadoPassword .alert {
+  border-radius: 12px;
+}

@@ -1,0 +1,53 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <%- mensaje || '' %>
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Catalogo de personajes Marvel</h2>
+        <a href="/agregar" class="btn btn-danger">Agregar personaje</a>
+      </div>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <div class="alert alert-light border mb-0">
+            <strong>Cookie de visitas al catalogo:</strong> <%= visitasCatalogo %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="alert <%= accesoPermitido ? 'alert-success' : 'alert-warning' %> mb-0">
+            <strong>Sesion actual:</strong> has agregado <%= personajesAgregados %> personaje(s)
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <% for (let personaje of personajes) { %>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm rounded-4 character-card">
+              <img src="<%= personaje.imagen %>" class="card-img-top character-img" alt="<%= personaje.nombre %>">
+              <div class="card-body">
+                <h4><%= personaje.nombre %></h4>
+                <p><strong>ID:</strong> <%= personaje.id %></p>
+                <p><strong>Tipo:</strong> <%= personaje.tipo %></p>
+                <p><strong>Universo:</strong> <%= personaje.universo %></p>
+                <p><%= personaje.descripcion %></p>
+                <div class="d-flex gap-2">
+                  <a href="/personajes/<%= personaje.id %>" class="btn btn-outline-danger btn-sm">Ver detalle</a>
+                  <% if (accesoPermitido) { %>
+                    <a href="/personajes/<%= personaje.id %>/editar" class="btn btn-dark btn-sm">Editar</a>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

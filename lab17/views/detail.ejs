@@ -1,0 +1,32 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <%- mensaje || '' %>
+
+      <div class="row g-4 align-items-center">
+        <div class="col-md-5">
+          <img src="<%= personaje.imagen %>" class="img-fluid rounded-4 shadow-sm" alt="<%= personaje.nombre %>">
+        </div>
+        <div class="col-md-7">
+          <p class="text-muted mb-2">Registro en MySQL #<%= personaje.id %></p>
+          <h2 class="mb-3"><%= personaje.nombre %></h2>
+          <p><strong>Tipo:</strong> <%= personaje.tipo %></p>
+          <p><strong>Universo:</strong> <%= personaje.universo %></p>
+          <p><strong>Descripcion:</strong> <%= personaje.descripcion %></p>
+
+          <div class="d-flex gap-2">
+            <a href="/catalogo" class="btn btn-outline-secondary">Volver al catalogo</a>
+            <% if (accesoPermitido) { %>
+              <a href="/personajes/<%= personaje.id %>/editar" class="btn btn-danger">Editar personaje</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

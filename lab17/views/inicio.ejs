@@ -1,0 +1,54 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<header class="hero-section text-white text-center d-flex align-items-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Catalogo de Personajes de Marvel</h1>
+    <p class="lead mt-3">
+      Aplicacion desarrollada con Node.js, Express, EJS, cookies y sesiones.
+    </p>
+    <a href="/catalogo" class="btn btn-light btn-lg mt-3 fw-semibold">Ver catalogo</a>
+  </div>
+</header>
+
+<section class="container my-5">
+  <div class="row g-4 mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 rounded-4 h-100">
+        <div class="card-body p-4">
+          <h2 class="h4 mb-3">Datos en cookies</h2>
+          <p><strong>Ultima seccion registrada:</strong> <%= ultimaSeccion %></p>
+          <p class="mb-0"><strong>Visitas al catalogo:</strong> <%= visitasCatalogo %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 rounded-4 h-100">
+        <div class="card-body p-4">
+          <h2 class="h4 mb-3">Datos en sesion</h2>
+          <p><strong>Acceso seguro activo:</strong> <%= accesoPermitido ? 'Si' : 'No' %></p>
+          <p><strong>Personajes agregados en esta sesion:</strong> <%= personajesAgregados %></p>
+          <p><strong>Ultimo acceso validado:</strong> <%= ultimoAccesoSeguro %></p>
+          <p class="mb-0"><strong>Registros totales en MySQL:</strong> <%= totalPersonajes %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 class="mb-3">Descripcion del proyecto</h2>
+      <p>
+        Esta version toma como base el catalogo de Marvel del laboratorio anterior y lo mejora con
+        manejo de cookies, sesiones e interaccion real con MySQL mediante el paquete mysql2.
+      </p>
+      <p class="mb-0">
+        El modelo ya no usa un arreglo en memoria: ahora consulta la base de datos para listar registros,
+        obtener un personaje por id, insertar nuevos datos y editar registros existentes.
+      </p>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

@@ -19,9 +19,10 @@
 | Lab 11 | Express |
 | Lab 12 | HTML Dinamico |
 | Lab 13 | MVC |
-| Lab 14 | — |
-| Lab 15 | — |
+| Lab 14 | LALO |
+| Lab 15 | Conociendo el cambiente de Maria DB (Ricardo) |
 | Lab 16 | — |
-| Lab 17 | — |
-| Lab 18 | — |
-| Lab 19 | — |
+| Lab 17 | LALO |
+| Lab 18 | LALO |
+| Lab 19 | LALO |
+| Lab 20 | Consultas en SQL (Ricardo) |

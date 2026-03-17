@@ -19,10 +19,10 @@
 | Lab 11 | Express |
 | Lab 12 | HTML Dinamico |
 | Lab 13 | MVC |
-| Lab 14 | LALO |
+| Lab 14 | Manejo de sesiones y cookies |
 | Lab 15 | Conociendo el cambiente de Maria DB (Ricardo) |
 | Lab 16 | — |
-| Lab 17 | LALO |
-| Lab 18 | LALO |
-| Lab 19 | LALO |
+| Lab 17 | Interaccion con base de datos |
+| Lab 18 | Autentificación |
+| Lab 19 | Role Based Acess Control (RBAC) |
 | Lab 20 | Consultas en SQL (Ricardo) |

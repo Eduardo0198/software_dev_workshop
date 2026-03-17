@@ -1,0 +1,50 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4">
+          <h2 class="mb-4 text-center">Iniciar sesion</h2>
+          <p class="text-center text-muted">
+            Ingresa con tu cuenta. Los roles que tenga tu usuario determinaran si solo puedes ver, tambien crear o tambien administrar permisos.
+          </p>
+
+          <%- mensaje || '' %>
+
+          <form action="/login" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electronico</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Contrasena</label>
+              <input type="password" class="form-control" id="loginPassword" name="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100">Entrar</button>
+          </form>
+
+          <div class="mt-4">
+            <h5 class="fw-bold">Usuarios de prueba</h5>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>admin@marvel.com</strong> / Marvel123 -> admin</li>
+              <li class="list-group-item"><strong>editor@marvel.com</strong> / Marvel123 -> editor</li>
+              <li class="list-group-item"><strong>viewer@marvel.com</strong> / Marvel123 -> viewer</li>
+            </ul>
+          </div>
+
+          <p class="text-center mt-3 mb-0">
+            No tienes cuenta? <a href="/signup">Registrate aqui</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

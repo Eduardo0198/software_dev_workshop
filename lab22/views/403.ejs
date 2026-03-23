@@ -1,0 +1,16 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="alert alert-warning shadow-sm rounded-4">
+    <h2 class="fw-bold">403 - Acceso denegado</h2>
+    <p>
+      Tu sesion esta activa, pero no cuentas con el permiso requerido para continuar.
+    </p>
+    <p class="mb-3"><strong>Permiso requerido:</strong> <code><%= permisoRequerido %></code></p>
+    <p class="mb-3"><strong>Tus roles actuales:</strong> <%= currentRoles.length ? currentRoles.join(', ') : 'Sin roles' %></p>
+    <a href="/" class="btn btn-dark">Volver al inicio</a>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

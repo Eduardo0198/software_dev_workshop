@@ -21,7 +21,7 @@
 | Lab 13 | MVC |
 | Lab 14 | Manejo de sesiones y cookies |
 | Lab 15 | Conociendo el cambiente de Maria DB (Ricardo) |
-| Lab 16 | — |
+| Lab 16 | Creación de constraints para instrumentar integridad referencial en MariaDB |
 | Lab 17 | Interaccion con base de datos |
 | Lab 18 | Autentificación |
 | Lab 19 | Role Based Acess Control (RBAC) |

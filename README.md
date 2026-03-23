@@ -26,3 +26,5 @@
 | Lab 18 | Autentificación |
 | Lab 19 | Role Based Acess Control (RBAC) |
 | Lab 20 | Consultas en SQL (Ricardo) |
+| Lab 21 | - |
+| Lab 22 | - |

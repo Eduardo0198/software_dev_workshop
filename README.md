@@ -28,3 +28,8 @@
 | Lab 20 | Consultas en SQL (Ricardo) |
 | Lab 21 | - |
 | Lab 22 | - |
+| Lab 23 | - |
+| Lab 24 | - |
+| Lab 25 | - |
+| Lab 26 | - |
+| Lab 27 | - |

@@ -162,16 +162,26 @@ exports.getEditar = (request, response, next) => {
 };
 
 exports.postEditar = (request, response, next) => {
-    const personaje = new Personaje(
-        request.params.personaje_id,
-        request.body.nombre,
-        request.body.descripcion,
-        request.body.tipo,
-        request.body.universo,
-        request.body.imagen
-    );
+    Personaje.fetchOne(request.params.personaje_id)
+        .then(([rows, fieldData]) => {
+            if (rows.length === 0) {
+                return response.status(404).render('404');
+            }
 
-    personaje.update()
+            const imagenActual = rows[0].imagen;
+            const imagenPath = request.file ? '/' + request.file.path.replace(/\\/g, '/') : imagenActual;
+
+            const personaje = new Personaje(
+                request.params.personaje_id,
+                request.body.nombre,
+                request.body.descripcion,
+                request.body.tipo,
+                request.body.universo,
+                imagenPath
+            );
+
+            return personaje.update();
+        })
         .then(() => {
             request.session.mensajeDetalle = `
                 <div class="alert alert-success">

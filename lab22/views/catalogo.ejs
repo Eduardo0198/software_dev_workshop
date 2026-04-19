@@ -40,7 +40,13 @@
         <% for (let personaje of personajes) { %>
           <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm rounded-4 character-card">
-              <img src="<%= personaje.imagen %>" class="card-img-top character-img" alt="<%= personaje.nombre %>">
+              <% if (personaje.imagen) { %>
+                <img src="<%= personaje.imagen %>" class="card-img-top character-img" alt="<%= personaje.nombre %>">
+              <% } else { %>
+                <div class="card-img-top character-img d-flex align-items-center justify-content-center bg-light text-muted" style="height: 220px;">
+                  Sin imagen disponible
+                </div>
+              <% } %>
               <div class="card-body">
                 <h4><%= personaje.nombre %></h4>
                 <p><strong>ID:</strong> <%= personaje.id %></p>

@@ -10,8 +10,14 @@
         Esta accion requiere el permiso <code>personajes.edit</code>. Tus roles activos son: <strong><%= currentRoles.join(', ') %></strong>.
       </div>
 
-      <form action="/personajes/<%= personaje.id %>/editar" method="POST">
-        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="mb-3">
+          <label for="imagen" class="form-label">Imagen actual</label>
+          <div class="mb-2">
+            <img src="<%= personaje.imagen %>" alt="Imagen actual" class="img-fluid" style="max-height: 200px;">
+          </div>
+          <label for="imagen" class="form-label">Subir nueva imagen (opcional)</label>
+          <input type="file" class="form-control" id="imagen" name="imagen" accept="image/png, image/jpeg">
+        </div>
 
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>

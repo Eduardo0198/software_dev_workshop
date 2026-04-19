@@ -11,8 +11,10 @@
         Esta accion requiere el permiso <code>personajes.create</code>. Tus roles activos son: <strong><%= currentRoles.join(', ') %></strong>.
       </div>
 
-      <form action="/agregar" method="POST">
-        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="mb-3">
+          <label for="imagen" class="form-label">Imagen del personaje</label>
+          <input type="file" class="form-control" id="imagen" name="imagen" accept="image/png, image/jpeg" required>
+        </div>
 
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>

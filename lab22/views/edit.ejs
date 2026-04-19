@@ -10,6 +10,9 @@
         Esta accion requiere el permiso <code>personajes.edit</code>. Tus roles activos son: <strong><%= currentRoles.join(', ') %></strong>.
       </div>
 
+      <form action="/personajes/<%= personaje.id %>/editar" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
         <div class="mb-3">
           <label for="imagen" class="form-label">Imagen actual</label>
           <div class="mb-2">
@@ -37,11 +40,6 @@
         <div class="mb-3">
           <label for="universo" class="form-label">Universo</label>
           <input type="text" class="form-control" id="universo" name="universo" value="<%= personaje.universo %>" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="imagen" class="form-label">URL de imagen</label>
-          <input type="url" class="form-control" id="imagen" name="imagen" value="<%= personaje.imagen %>" required>
         </div>
 
         <div class="d-flex gap-2">

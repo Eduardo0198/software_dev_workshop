@@ -4,13 +4,43 @@ const path = require('path');
 const session = require('express-session');
 const csrf = require('csurf');
 const db = require('./util/database');
+//importamos multer para manejar archivos
+const multer = require('multer');
 
 const app = express();
+const upload = multer({ dest: 'public/uploads/' });
 
 const authRoutes = require('./routes/auth_routes');
 const adminRoutes = require('./routes/admin_routes');
 const personajesRoutes = require('./routes/personajes_routes');
 const csrfProtection = csrf();
+
+
+//fileStorage: Configuración para manejar el almacenamiento de archivos
+const fileStorage = multer.diskStorage({
+    destination: (request, file, callback) => {
+        //'uploads': Directorio del servidor donde se subirán los archivos 
+        callback(null, 'uploads');
+    },
+    filename: (request, file, callback) => {
+        //Concatenamos el timestamp para evitar nombres duplicados
+        callback(null, new Date().toISOString() + '-' + file.originalname);
+    },
+});
+
+//fileFilter: Configuración para filtrar tipos de archivos
+const fileFilter = (request, file, callback) => {
+    if (file.mimetype == 'image/png' || 
+        file.mimetype == 'image/jpg' ||
+        file.mimetype == 'image/jpeg') {
+        callback(null, true);
+    } else {
+        callback(null, false);
+    }
+};
+
+
+
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -21,6 +51,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
+
+//Registro de multer después de bodyParser
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('imagen'));
+
 app.use(csrfProtection);
 app.use((request, response, next) => {
     const roles = request.session.roles || [];

@@ -27,9 +27,9 @@
 | Lab 19 | Role Based Acess Control (RBAC) |
 | Lab 20 | Consultas en SQL (Ricardo) |
 | Lab 21 | - |
-| Lab 22 | - |
+| Lab 22 | Subida y bajada de archivos |
 | Lab 23 | - |
 | Lab 24 | - |
 | Lab 25 | - |
-| Lab 26 | - |
+| Lab 26 | usp de una API |
 | Lab 27 | - |

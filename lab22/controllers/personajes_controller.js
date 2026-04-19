@@ -123,6 +123,7 @@ exports.getAgregar = (request, response, next) => {
 };
 
 exports.postAgregar = (request, response, next) => {
+    const imagenPath = request.file ? '/' + request.file.path.replace(/\\/g, '/') : '';
     const personaje = new Personaje(
         null,
         request.body.nombre,

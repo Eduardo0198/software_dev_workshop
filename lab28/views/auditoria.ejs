@@ -1,0 +1,49 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 class="mb-4">Auditoría de Personajes</h2>
+
+      <p class="text-muted">Esta tabla muestra las acciones registradas por los triggers en la base de datos.</p>
+
+      <% if (auditoria.length === 0) { %>
+        <div class="alert alert-info">No hay registros de auditoría aún. Agrega o elimina personajes para activar los triggers.</div>
+      <% } else { %>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Acción</th>
+                <th>ID Personaje</th>
+                <th>Nombre Personaje</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% auditoria.forEach(registro => { %>
+                <tr>
+                  <td><%= registro.id %></td>
+                  <td>
+                    <span class="badge bg-<%= registro.accion === 'INSERT' ? 'success' : 'danger' %>">
+                      <%= registro.accion %>
+                    </span>
+                  </td>
+                  <td><%= registro.personaje_id %></td>
+                  <td><%= registro.nombre_personaje %></td>
+                  <td><%= new Date(registro.fecha).toLocaleString() %></td>
+                  <td><%= registro.usuario %></td>
+                </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

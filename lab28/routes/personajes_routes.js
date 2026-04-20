@@ -14,5 +14,6 @@ router.get('/personajes/:personaje_id/editar', isAuth, hasPermission('personajes
 router.post('/personajes/:personaje_id/editar', isAuth, hasPermission('personajes.edit'), personajesController.postEditar);
 router.get('/preguntas', personajesController.getPreguntas);
 router.get('/servicios', personajesController.getServicios);
+router.get('/auditoria', isAuth, hasPermission('personajes.view'), personajesController.getAuditoria);
 
 module.exports = router;

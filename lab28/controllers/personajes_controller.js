@@ -209,3 +209,16 @@ exports.getServicios = (request, response, next) => {
         titulo: 'Servicios Web'
     });
 };
+
+exports.getAuditoria = (request, response, next) => {
+    const db = require('../util/database');
+
+    db.execute('SELECT * FROM auditoria_personajes ORDER BY fecha DESC')
+        .then(([rows, fieldData]) => {
+            response.render('auditoria', {
+                titulo: 'Auditoría de Personajes',
+                auditoria: rows
+            });
+        })
+        .catch((error) => renderError(response, error));
+};

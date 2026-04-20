@@ -206,7 +206,6 @@ exports.getPreguntas = (request, response, next) => {
 
 exports.getServicios = (request, response, next) => {
     response.render('servicios', {
-        titulo: 'Servicios Web',
-        apiKey: 'TU_API_KEY' // reemplaza después
+        titulo: 'Servicios Web'
     });
 };

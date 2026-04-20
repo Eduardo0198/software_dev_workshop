@@ -1,0 +1,67 @@
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+
+.hero-section {
+  min-height: 70vh;
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+              url("https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+.character-card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.character-img {
+  height: 260px;
+  object-fit: cover;
+}
+
+.card-title {
+  color: #b30000;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #ffe5e5;
+  color: #b30000;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 3rem;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+
+.valid {
+  color: #198754;
+  font-weight: bold;
+}
+
+.invalid {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+#validatorTitle {
+  transition: all 0.3s ease;
+}
+
+#resultadoPassword .alert {
+  border-radius: 12px;
+}

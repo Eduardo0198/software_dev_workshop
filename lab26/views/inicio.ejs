@@ -1,0 +1,60 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<header class="hero-section text-white text-center d-flex align-items-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Catalogo de Personajes de Marvel</h1>
+    <p class="lead mt-3">
+      Aplicacion desarrollada con Node.js, Express, EJS, MySQL, autentificacion, CSRF y control de acceso basado en roles.
+    </p>
+    <% if (isAuthenticated) { %>
+      <a href="/catalogo" class="btn btn-light btn-lg mt-3 fw-semibold">Ir al catalogo</a>
+    <% } else { %>
+      <a href="/login" class="btn btn-light btn-lg mt-3 fw-semibold">Iniciar sesion</a>
+    <% } %>
+  </div>
+</header>
+
+<section class="container my-5">
+  <div class="row g-4 mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 rounded-4 h-100">
+        <div class="card-body p-4">
+          <h2 class="h4 mb-3">Datos en cookies</h2>
+          <p><strong>Ultima seccion registrada:</strong> <%= ultimaSeccion %></p>
+          <p class="mb-0"><strong>Visitas al catalogo:</strong> <%= visitasCatalogo %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm border-0 rounded-4 h-100">
+        <div class="card-body p-4">
+          <h2 class="h4 mb-3">Datos de autentificacion</h2>
+          <p><strong>Sesion iniciada:</strong> <%= isAuthenticated ? 'Si' : 'No' %></p>
+          <p><strong>Usuario actual:</strong> <%= currentUser ? currentUser.email : 'Sin iniciar sesion' %></p>
+          <p><strong>Roles del usuario:</strong> <%= rolesUsuario.length ? rolesUsuario.join(', ') : 'Sin roles cargados en sesion' %></p>
+          <p><strong>Permisos cargados:</strong> <%= permisosUsuario.length ? permisosUsuario.join(', ') : 'Sin permisos disponibles' %></p>
+          <p><strong>Personajes agregados en esta sesion:</strong> <%= personajesAgregados %></p>
+          <p class="mb-0"><strong>Registros totales en MySQL:</strong> <%= totalPersonajes %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 class="mb-3">Descripcion del proyecto</h2>
+      <p>
+        Esta version toma como base el laboratorio anterior y agrega RBAC sobre la autentificacion existente.
+        Cuando un usuario inicia sesion, la aplicacion consulta sus roles y permisos desde MySQL y los guarda en la sesion.
+      </p>
+      <p class="mb-0">
+        Con eso la interfaz se adapta dinamicamente: un viewer solo puede consultar personajes,
+        un editor puede crear y editar, y un admin ademas puede administrar asignaciones de roles.
+      </p>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

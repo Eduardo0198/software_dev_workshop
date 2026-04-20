@@ -209,3 +209,63 @@ exports.getServicios = (request, response, next) => {
         titulo: 'Servicios Web'
     });
 };
+
+exports.getProcedimientos = (request, response, next) => {
+    response.render('procedimientos', {
+        titulo: 'Procedimientos Almacenados',
+        resultados: null,
+        mensaje: null,
+        accion: null,
+        universo: ''
+    });
+};
+
+exports.postProcedimientos = (request, response, next) => {
+    const accion = request.body.accion;
+    const universo = request.body.universo || null;
+    const id = request.body.id ? Number(request.body.id) : null;
+    const nombre = request.body.nombre || null;
+    const descripcion = request.body.descripcion || null;
+    const tipo = request.body.tipo || null;
+    const universoInput = request.body.universo || null;
+    const imagen = request.body.imagen || null;
+
+    let promesa;
+
+    if (accion === 'guardar') {
+        promesa = db.execute(
+            'CALL sp_guardar_personaje(?, ?, ?, ?, ?, ?)',
+            [id, nombre, descripcion, tipo, universoInput, imagen]
+        ).then(() => ({ mensaje: 'Procedimiento sp_guardar_personaje ejecutado correctamente.', resultados: null }));
+    } else if (accion === 'listar') {
+        promesa = db.execute(
+            'CALL sp_obtener_personajes_por_universo(?)',
+            [universo]
+        ).then(([rows]) => ({
+            mensaje: `Personajes del universo ${universo || 'todos'}.`,
+            resultados: Array.isArray(rows) && Array.isArray(rows[0]) ? rows[0] : rows
+        }));
+    } else if (accion === 'contar') {
+        promesa = db.execute(
+            'CALL sp_contar_personajes_por_universo(?)',
+            [universo]
+        ).then(([rows]) => ({
+            mensaje: `Conteo de personajes por universo ${universo || 'todos'}.`,
+            resultados: Array.isArray(rows) && Array.isArray(rows[0]) ? rows[0] : rows
+        }));
+    } else {
+        promesa = Promise.resolve({ mensaje: 'Acción no reconocida.', resultados: null });
+    }
+
+    promesa
+        .then((data) => {
+            response.render('procedimientos', {
+                titulo: 'Procedimientos Almacenados',
+                resultados: data.resultados,
+                mensaje: data.mensaje,
+                accion: accion,
+                universo: universo || ''
+            });
+        })
+        .catch((error) => renderError(response, error));
+};

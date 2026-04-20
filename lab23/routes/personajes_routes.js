@@ -13,6 +13,8 @@ router.post('/agregar', isAuth, hasPermission('personajes.create'), personajesCo
 router.get('/personajes/:personaje_id/editar', isAuth, hasPermission('personajes.edit'), personajesController.getEditar);
 router.post('/personajes/:personaje_id/editar', isAuth, hasPermission('personajes.edit'), personajesController.postEditar);
 router.get('/preguntas', personajesController.getPreguntas);
+router.get('/procedimientos', personajesController.getProcedimientos);
+router.post('/procedimientos', personajesController.postProcedimientos);
 router.get('/servicios', personajesController.getServicios);
 
 module.exports = router;

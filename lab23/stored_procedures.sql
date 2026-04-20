@@ -1,7 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE sp_guardar_personaje(
-    IN p_id INT,
+CREATE PROCEDURE sp_insertar_personaje(
     IN p_nombre VARCHAR(100),
     IN p_descripcion TEXT,
     IN p_tipo VARCHAR(100),
@@ -9,21 +8,11 @@ CREATE PROCEDURE sp_guardar_personaje(
     IN p_imagen TEXT
 )
 BEGIN
-    IF p_id IS NULL OR p_id = 0 THEN
-        INSERT INTO personajes (nombre, descripcion, tipo, universo, imagen)
-        VALUES (p_nombre, p_descripcion, p_tipo, p_universo, p_imagen);
-    ELSE
-        UPDATE personajes
-        SET nombre = p_nombre,
-            descripcion = p_descripcion,
-            tipo = p_tipo,
-            universo = p_universo,
-            imagen = p_imagen
-        WHERE id = p_id;
-    END IF;
+    INSERT INTO personajes (nombre, descripcion, tipo, universo, imagen)
+    VALUES (p_nombre, p_descripcion, p_tipo, p_universo, p_imagen);
 END //
 
-CREATE PROCEDURE sp_obtener_personajes_por_universo(
+CREATE PROCEDURE sp_listar_personajes_por_universo(
     IN p_universo VARCHAR(100)
 )
 BEGIN

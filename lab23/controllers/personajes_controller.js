@@ -1,4 +1,5 @@
 const Personaje = require('../models/personajes');
+const db = require('../util/database');
 
 function leerCookies(request) {
     const cookieHeader = request.get('Cookie');
@@ -234,12 +235,12 @@ exports.postProcedimientos = (request, response, next) => {
 
     if (accion === 'guardar') {
         promesa = db.execute(
-            'CALL sp_guardar_personaje(?, ?, ?, ?, ?, ?)',
-            [id, nombre, descripcion, tipo, universoInput, imagen]
-        ).then(() => ({ mensaje: 'Procedimiento sp_guardar_personaje ejecutado correctamente.', resultados: null }));
+            'CALL sp_insertar_personaje(?, ?, ?, ?, ?)',
+            [nombre, descripcion, tipo, universoInput, imagen]
+        ).then(() => ({ mensaje: 'Procedimiento sp_insertar_personaje ejecutado correctamente.', resultados: null }));
     } else if (accion === 'listar') {
         promesa = db.execute(
-            'CALL sp_obtener_personajes_por_universo(?)',
+            'CALL sp_listar_personajes_por_universo(?)',
             [universo]
         ).then(([rows]) => ({
             mensaje: `Personajes del universo ${universo || 'todos'}.`,

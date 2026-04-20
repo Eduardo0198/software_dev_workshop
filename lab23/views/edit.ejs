@@ -1,0 +1,54 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 class="mb-4">Editar personaje</h2>
+
+      <div class="alert alert-light border">
+        Esta accion requiere el permiso <code>personajes.edit</code>. Tus roles activos son: <strong><%= currentRoles.join(', ') %></strong>.
+      </div>
+
+      <form action="/personajes/<%= personaje.id %>/editar" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <div class="mb-3">
+          <label for="imagen" class="form-label">Imagen actual</label>
+          <div class="mb-2">
+            <img src="<%= personaje.imagen %>" alt="Imagen actual" class="img-fluid" style="max-height: 200px;">
+          </div>
+          <label for="imagen" class="form-label">Subir nueva imagen (opcional)</label>
+          <input type="file" class="form-control" id="imagen" name="imagen" accept="image/png, image/jpeg">
+        </div>
+
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" value="<%= personaje.nombre %>" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripcion</label>
+          <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required><%= personaje.descripcion %></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="tipo" class="form-label">Tipo</label>
+          <input type="text" class="form-control" id="tipo" name="tipo" value="<%= personaje.tipo %>" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="universo" class="form-label">Universo</label>
+          <input type="text" class="form-control" id="universo" name="universo" value="<%= personaje.universo %>" required>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-danger">Guardar cambios</button>
+          <a href="/personajes/<%= personaje.id %>" class="btn btn-outline-secondary">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

@@ -1,0 +1,63 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 class="mb-4">Preguntas del laboratorio</h2>
+
+      <div class="accordion" id="accordionPreguntas">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pregunta1">
+              Que capacidades le da RBAC a una aplicacion?
+            </button>
+          </h2>
+          <div id="pregunta1" class="accordion-collapse collapse" data-bs-parent="#accordionPreguntas">
+            <div class="accordion-body">
+              RBAC permite centralizar permisos, reutilizar reglas de acceso y construir interfaces dinamicas
+              segun el rol del usuario. Tambien facilita auditoria, crecimiento del sistema y mantenimiento,
+              porque ya no se valida usuario por usuario sino por capacidades agrupadas en roles.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pregunta2">
+              En que consiste el control de acceso basado en roles?
+            </button>
+          </h2>
+          <div id="pregunta2" class="accordion-collapse collapse" data-bs-parent="#accordionPreguntas">
+            <div class="accordion-body">
+              Consiste en asignar permisos a roles y luego asignar esos roles a los usuarios.
+              De esta forma un usuario no recibe permisos directos uno por uno, sino capacidades
+              agrupadas de acuerdo con su funcion, por ejemplo viewer, editor o admin.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pregunta3">
+              Un sistema que use RBAC y otro que no: ventajas y desventajas
+            </button>
+          </h2>
+          <div id="pregunta3" class="accordion-collapse collapse" data-bs-parent="#accordionPreguntas">
+            <div class="accordion-body">
+              Un ejemplo de sistema con RBAC es GitHub: permite roles como owner, maintainer o collaborator,
+              lo cual hace claro quien puede leer, escribir, aprobar o administrar un repositorio. Su ventaja
+              es el orden y la seguridad; su desventaja es que requiere mas diseno inicial.
+              <br><br>
+              Un ejemplo sin RBAC formal seria una aplicacion casera donde solo existe "logueado" o "no logueado".
+              Su ventaja es la simplicidad y rapidez de implementacion, pero su desventaja es que crece mal:
+              termina llenandose de validaciones manuales y es mas facil cometer errores de seguridad.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

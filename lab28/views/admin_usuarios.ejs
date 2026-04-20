@@ -1,0 +1,83 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Administracion de roles y permisos</h2>
+        <span class="badge text-bg-dark">Permiso requerido: roles.assign</span>
+      </div>
+
+      <p class="text-muted">
+        Desde aqui puedes cambiar la asignacion de roles por usuario. La interfaz responde al modelo RBAC
+        y cada cambio se valida tambien en la ruta del servidor.
+      </p>
+
+      <%- mensaje || '' %>
+
+      <div class="row g-3 mb-4">
+        <% for (const rol of rolesDisponibles) { %>
+          <div class="col-md-4">
+            <div class="card h-100 border rounded-4">
+              <div class="card-body">
+                <h5 class="mb-2"><%= rol.nombre %></h5>
+                <p class="mb-0 text-muted"><%= rol.descripcion %></p>
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Correo</th>
+              <th>Roles actuales</th>
+              <th>Editar roles</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (const usuario of usuarios) { %>
+              <% const roleIdsSeleccionados = usuario.roleIds ? usuario.roleIds.split(',') : []; %>
+              <tr>
+                <td><%= usuario.id %></td>
+                <td><%= usuario.nombre %></td>
+                <td><%= usuario.email %></td>
+                <td><%= usuario.roles %></td>
+                <td>
+                  <form action="/admin/usuarios/<%= usuario.id %>/roles" method="POST" class="p-3 border rounded-4 bg-light">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                    <% for (const rol of rolesDisponibles) { %>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          name="roles"
+                          value="<%= rol.id %>"
+                          id="user-<%= usuario.id %>-rol-<%= rol.id %>"
+                          <%= roleIdsSeleccionados.includes(String(rol.id)) ? 'checked' : '' %>
+                        >
+                        <label class="form-check-label" for="user-<%= usuario.id %>-rol-<%= rol.id %>">
+                          <strong><%= rol.nombre %></strong> - <%= rol.descripcion %>
+                        </label>
+                      </div>
+                    <% } %>
+
+                    <button type="submit" class="btn btn-danger btn-sm mt-3">Guardar roles</button>
+                  </form>
+                </td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

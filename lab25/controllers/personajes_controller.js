@@ -209,3 +209,59 @@ exports.getServicios = (request, response, next) => {
         titulo: 'Servicios Web'
     });
 };
+
+exports.getTransacciones = (request, response, next) => {
+    response.render('transacciones', {
+        titulo: 'Transacciones',
+        mensaje: obtenerFlash(request, 'mensajeTransaccion')
+    });
+};
+
+exports.postTransacciones = (request, response, next) => {
+    const db = require('../util/database');
+
+    // Iniciar transacción
+    db.beginTransaction()
+        .then(() => {
+            // Insertar varios personajes en la transacción
+            const inserts = [
+                db.execute('INSERT INTO personajes (nombre, descripcion, tipo, universo, imagen) VALUES (?, ?, ?, ?, ?)', 
+                    ['Thor', 'Dios del trueno', 'Héroe', 'Marvel', 'https://example.com/thor.jpg']),
+                db.execute('INSERT INTO personajes (nombre, descripcion, tipo, universo, imagen) VALUES (?, ?, ?, ?, ?)', 
+                    ['Loki', 'Dios de las mentiras', 'Villano', 'Marvel', 'https://example.com/loki.jpg']),
+                db.execute('INSERT INTO personajes (nombre, descripcion, tipo, universo, imagen) VALUES (?, ?, ?, ?, ?)', 
+                    ['Hulk', 'Monstruo verde', 'Héroe', 'Marvel', 'https://example.com/hulk.jpg'])
+            ];
+
+            return Promise.all(inserts);
+        })
+        .then(() => {
+            // Confirmar la transacción
+            return db.commit();
+        })
+        .then(() => {
+            request.session.mensajeTransaccion = `
+                <div class="alert alert-success">
+                    Transacción completada exitosamente. Se insertaron 3 personajes.
+                </div>
+            `;
+            response.redirect('/transacciones');
+        })
+        .catch((error) => {
+            // Revertir la transacción en caso de error
+            return db.rollback()
+                .then(() => {
+                    console.log('Transacción revertida debido a error:', error);
+                    request.session.mensajeTransaccion = `
+                        <div class="alert alert-danger">
+                            Error en la transacción. Los cambios han sido revertidos.
+                        </div>
+                    `;
+                    response.redirect('/transacciones');
+                })
+                .catch((rollbackError) => {
+                    console.log('Error al revertir:', rollbackError);
+                    renderError(response, rollbackError);
+                });
+        });
+};

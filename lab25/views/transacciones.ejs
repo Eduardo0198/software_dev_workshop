@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
+
+<section class="container my-5">
+  <div class="card shadow-sm border-0 rounded-4">
+    <div class="card-body p-4">
+      <h2 class="mb-4">Transacciones</h2>
+      <%- mensaje || '' %>
+
+      <div class="alert alert-info">
+        <strong>Demostración de Transacciones:</strong> Esta página permite ejecutar una transacción que inserta 3 personajes de Marvel de manera atómica. Si ocurre un error, todos los cambios se revierten.
+      </div>
+
+      <form action="/transacciones" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+        <p>Al hacer clic en "Ejecutar Transacción", se intentará insertar:</p>
+        <ul>
+          <li>Thor - Dios del trueno (Héroe)</li>
+          <li>Loki - Dios de las mentiras (Villano)</li>
+          <li>Hulk - Monstruo verde (Héroe)</li>
+        </ul>
+
+        <button type="submit" class="btn btn-primary">Ejecutar Transacción</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<%- include('includes/footer.ejs') %>

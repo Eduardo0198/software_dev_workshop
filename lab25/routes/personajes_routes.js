@@ -14,5 +14,7 @@ router.get('/personajes/:personaje_id/editar', isAuth, hasPermission('personajes
 router.post('/personajes/:personaje_id/editar', isAuth, hasPermission('personajes.edit'), personajesController.postEditar);
 router.get('/preguntas', personajesController.getPreguntas);
 router.get('/servicios', personajesController.getServicios);
+router.get('/transacciones', isAuth, hasPermission('personajes.create'), personajesController.getTransacciones);
+router.post('/transacciones', isAuth, hasPermission('personajes.create'), personajesController.postTransacciones);
 
 module.exports = router;
